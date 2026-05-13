@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  // Aquí metemos la lógica que tenías en script.js para el scroll
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation(); // Detecta en qué ruta estamos
+
+  // Si no estamos en la página de inicio ("/"), forzamos el estilo "scrolled"
+  const isHomePage = location.pathname === '/';
+  const navClass = (scrolled || !isHomePage) ? 'scrolled' : '';
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 34) { // 34px es más o menos el alto de tu top-bar
+      if (window.scrollY > 34) { 
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -19,21 +24,19 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Barra de anuncios */}
       <div className="top-bar">
         Reserva en web y recibe: Early Check-in, Parking y Wi-Fi gratis *Aplican Restricciones
       </div>
 
-      {/* Navegación */}
-      <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
-        <a href="#" className="logo">Casa Grande</a>
+      <nav id="navbar" className={navClass}>
+        <Link to="/" className="logo">Casa Grande</Link>
         <ul className="nav-links">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Habitaciones</a></li>
-          <li><a href="#">Actividades en Taxco</a></li>
-          <li><a href="#">Galeria</a></li>
-          <li><a href="#" className="btn-reservar">Reservar</a></li>
+          <li><Link to="/">Inicio</Link></li>
+          <li><Link to="/nosotros">Nosotros</Link></li>
+          <li><Link to="/habitaciones">Habitaciones</Link></li>
+          <li><Link to="/actividades">Actividades en Taxco</Link></li>
+          <li><Link to="/galeria">Galería</Link></li>
+          <li><Link to="/reservar" className="btn-reservar">Reservar</Link></li>
         </ul>
       </nav>
     </>

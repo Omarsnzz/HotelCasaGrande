@@ -1,3 +1,6 @@
+/* =========================================
+   ESTILOS GLOBALES Y VARIABLES
+   ========================================= */
 :root {
     --primary-color: #1A365D; /* Azul elegante */
     --accent-color: #D4AF37;  /* Dorado oscuro */
@@ -21,7 +24,9 @@ body {
     background-color: var(--bg-light);
 }
 
-/* Barra de anuncios superior */
+/* =========================================
+   BARRA DE NAVEGACIÓN Y HERO
+   ========================================= */
 .top-bar {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -33,7 +38,6 @@ body {
     z-index: 1000;
 }
 
-/* Navegación */
 nav {
     position: fixed;
     top: 34px;
@@ -96,7 +100,6 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     background-color: #b5952f;
 }
 
-/* Sección Hero (Carrusel) */
 .hero {
     position: relative;
     height: 100vh;
@@ -133,7 +136,6 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     opacity: 1;
 }
 
-/* BOTONES DEL CARRUSEL */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -161,7 +163,6 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
 .prev-btn { left: 30px; }
 .next-btn { right: 30px; }
 
-/* Tarjeta de oferta con Glassmorphism */
 .offer-card {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -214,7 +215,9 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     opacity: 0.9;
 }
 
-/* Sección de Bienvenida */
+/* =========================================
+   SECCIÓN BIENVENIDA
+   ========================================= */
 .welcome {
     padding: 100px 20px;
     background-color: var(--bg-light);
@@ -245,7 +248,7 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
 }
 
 .welcome-img {
-    flex: 0 0 65%; /* Ocupa el 65% del ancho */
+    flex: 0 0 65%;
 }
 
 .welcome-img img {
@@ -256,8 +259,8 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
 }
 
 .welcome-info-box {
-    flex: 0 0 45%; /* Ocupa el 45% */
-    margin-left: -10%; /* Empuja la caja hacia la izquierda */
+    flex: 0 0 45%;
+    margin-left: -10%;
     background-color: white;
     padding: 60px 50px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
@@ -290,41 +293,120 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     color: #4a4a4a;
 }
 
-.welcome-info-box p:last-child {
-    margin-bottom: 0;
+/* =========================================
+   SECCIÓN DE HABITACIONES
+   ========================================= */
+.rooms-section {
+    padding: 80px 5%;
+    background-color: var(--bg-light);
+    padding-top: 120px; /* Evita que el Navbar tape el título */
 }
 
-/* Chat flotante */
-.chat-widget {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--primary-color);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.room-group {
+    margin-bottom: 60px;
+}
+
+.floor-title {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.room-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-    z-index: 1000;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
 }
 
-.chat-widget:hover {
-    transform: scale(1.1);
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-/* Animaciones */
+.room-info h4 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.room-beds, .room-pax {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.room-details {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.room-price-box {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.room-price-box .currency {
+    font-size: 1rem;
+    vertical-align: top;
+}
+
+.room-price-box .price {
+    font-size: 1.8rem;
+}
+
+.room-price-box .per-night {
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 400;
+}
+
+.room-card:has(.room-details) {
+    grid-column: span 1; 
+}
+
+/* =========================================
+   RESPONSIVIDAD Y ANIMACIONES
+   ========================================= */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsividad */
 @media (max-width: 992px) {
     .welcome-container {
         flex-direction: column;
@@ -350,4 +432,52 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     .carousel-btn { width: 40px; height: 40px; font-size: 1.2rem; }
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
+}
+/* Estilos extra para las imágenes y botón de las tarjetas */
+.room-card {
+    padding: 0; /* Quitamos el padding global para que la imagen ocupe todo el ancho arriba */
+    overflow: hidden; /* Redondea las esquinas de la imagen */
+}
+
+.room-img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.room-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover .room-card-img {
+    transform: scale(1.05); /* Efecto zoom al pasar el mouse */
+}
+
+.room-info, .room-price-box {
+    padding: 0 20px; /* Regresamos el padding solo a los textos */
+}
+
+.room-info {
+    margin-top: 15px;
+}
+
+.btn-details {
+    display: block;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 12px 0;
+    margin: 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-details:hover {
+    background-color: var(--accent-color);
+    color: white;
 }
