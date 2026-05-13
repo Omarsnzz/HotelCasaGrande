@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Casa Grande - Taxco</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra de anuncios -->
+    <div class="top-bar">
+        Reserva en web y recibe: Early Check-in, Parking y Wi-Fi gratis *Aplican Restricciones
+    </div>
+
+    <!-- Navegación -->
+    <nav id="navbar">
+        <a href="#" class="logo">Casa Grande</a>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Habitaciones</a></li>
+            <li><a href="#">Actividades en Taxco</a></li>
+            <li><a href="#">Galeria</a></li>
+            <li><a href="#" class="btn-reservar">Reservar</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Principal (Hero con Carrusel y Botones) -->
+    <section class="hero">
+        <div class="carousel-background">
+            <!-- AQUÍ ESTABA EL ERROR: Cambiado de .jpg a .png -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('src/BACKGROUND.png');"></div>
+            <!-- Las demás se quedan en .jpg porque así están en tu carpeta -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('src/BACKGROUND1.jpg');"></div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('src/BACKGROUND2.jpg');"></div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('src/BACKGROUND3.jpg');"></div>
+        </div>
+
+        <!-- Controles del Carrusel -->
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <button class="carousel-btn next-btn">&#10095;</button>
+
+        <div class="offer-card">
+            <h1>¡EN EL CENTRO DE LA CIUDAD A UNOS METROS DEL ZÓCALO!</h1>
+            
+            <div class="discounts">
+                <div class="discount-item">
+                    <span class="discount-percent">35%</span>
+                    <span class="discount-nights">1 Noche</span>
+                </div>
+                <div class="discount-item">
+                    <span class="discount-percent">40%</span>
+                    <span class="discount-nights">2 Noches</span>
+                </div>
+                <div class="discount-item">
+                    <span class="discount-percent">45%</span>
+                    <span class="discount-nights">3+ Noches</span>
+                </div>
+            </div>
+
+            <p class="offer-footer">
+                <strong>Reserva sin riesgo:</strong> tarifas 100% reembolsables.<br>
+                Con la tranquilidad de poder cambiar de plan cuando quieras.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección de Bienvenida -->
+    <section class="welcome">
+        <div class="welcome-header">
+            <h2>¡Bienvenido!</h2>
+            <p>Descubra el encanto colonial y la magia de Taxco en el Hotel Casa Grande.</p>
+        </div>
+        
+        <div class="welcome-container">
+            <div class="welcome-img">
+                <!-- Se actualizó para usar tu imagen img1.png -->
+                <img src="src/img1.png" alt="Vista panorámica">
+            </div>
+            <div class="welcome-info-box">
+                <h3>Un lugar cerca del cielo</h3>
+                <h4>Ubicado en el encantador <strong>Pueblo Mágico de Taxco.</strong></h4>
+                
+                <p>Nuestro hotel está enclavado en la montaña ofreciéndoles vistas impresionantes y panorámicas de la ciudad. Taxco es reconocido por su rica tradición platera y su encanto colonial, lo cual brinda una experiencia única a todos nuestros visitantes.</p>
+                
+                <p>Durante su estancia en el Hotel Casa Grande, podrán disfrutar de la belleza natural y la riqueza cultural de Taxco.</p>
+                
+                <p>Disfruta tus vacaciones en nuestro Hotel con alberca en Taxco de Alarcón.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Widget de Chat -->
+    <div class="chat-widget" title="Chatea con nosotros">
+        💬
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

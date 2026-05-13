@@ -1,0 +1,74 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Efecto de scroll para la barra de navegación
+    const navbar = document.getElementById('navbar');
+    const topBar = document.querySelector('.top-bar');
+
+    if (navbar && topBar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > topBar.offsetHeight) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+
+   
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        let carouselInterval;
+        const intervalTime = 7000; // 7 segundos como solicitaste
+
+        // Función para cambiar a un slide específico
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            // La fórmula (index + slides.length) % slides.length evita números negativos
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Función para ir al siguiente
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        // Función para ir al anterior
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        // Función para reiniciar el temporizador si el usuario hace clic
+        function resetTimer() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextSlide, intervalTime);
+        }
+
+        // Iniciar el carrusel automático
+        carouselInterval = setInterval(nextSlide, intervalTime);
+
+        // Asignar los clics a los botones
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetTimer(); // Reinicia los 7 segundos al dar clic
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetTimer(); // Reinicia los 7 segundos al dar clic
+            });
+        }
+    }
+
+    // 3. Interacción simple para el chat flotante
+    const chatWidget = document.querySelector('.chat-widget');
+    if (chatWidget) {
+        chatWidget.addEventListener('click', () => {
+            alert('¡Hola! Un agente del Hotel Casa Grande te atenderá en un momento.');
+        });
+    }
+});
