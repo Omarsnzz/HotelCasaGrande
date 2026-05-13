@@ -1,0 +1,353 @@
+:root {
+    --primary-color: #1A365D; /* Azul elegante */
+    --accent-color: #D4AF37;  /* Dorado oscuro */
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --bg-light: #fcfbf9; /* Color crema de fondo para la bienvenida */
+    --font-main: 'Poppins', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background-color: var(--bg-light);
+}
+
+/* Barra de anuncios superior */
+.top-bar {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Navegación */
+nav {
+    position: fixed;
+    top: 34px;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+nav.scrolled {
+    top: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 5%;
+}
+
+nav.scrolled .logo, nav.scrolled .nav-links a {
+    color: var(--primary-color);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.btn-reservar {
+    background-color: var(--accent-color);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: #b5952f;
+}
+
+/* Sección Hero (Carrusel) */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.carousel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* BOTONES DEL CARRUSEL */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: 30px; }
+.next-btn { right: 30px; }
+
+/* Tarjeta de oferta con Glassmorphism */
+.offer-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 50px 40px;
+    max-width: 800px;
+    color: var(--text-light);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease forwards;
+    z-index: 2;
+}
+
+.offer-card h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.discounts {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 20px 0;
+}
+
+.discount-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.discount-percent {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.discount-nights {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.offer-footer {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Sección de Bienvenida */
+.welcome {
+    padding: 100px 20px;
+    background-color: var(--bg-light);
+}
+
+.welcome-header {
+    text-align: center;
+    margin-bottom: 70px;
+    color: var(--primary-color);
+}
+
+.welcome-header h2 {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+}
+
+.welcome-header p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.welcome-img {
+    flex: 0 0 65%; /* Ocupa el 65% del ancho */
+}
+
+.welcome-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.welcome-info-box {
+    flex: 0 0 45%; /* Ocupa el 45% */
+    margin-left: -10%; /* Empuja la caja hacia la izquierda */
+    background-color: white;
+    padding: 60px 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    z-index: 2;
+    position: relative;
+}
+
+.welcome-info-box h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    margin-bottom: 5px;
+}
+
+.welcome-info-box h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.welcome-info-box h4 strong {
+    font-weight: 600;
+}
+
+.welcome-info-box p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+}
+
+.welcome-info-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Chat flotante */
+.chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.chat-widget:hover {
+    transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+    .welcome-container {
+        flex-direction: column;
+    }
+    .welcome-img {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    .welcome-info-box {
+        flex: 0 0 100%;
+        margin-left: 0;
+        margin-top: -60px;
+        width: 90%;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .offer-card h1 { font-size: 2.2rem; }
+    .discounts { flex-direction: column; gap: 15px; }
+    .welcome-header h2 { font-size: 2.5rem; }
+    .carousel-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+}
