@@ -7,6 +7,8 @@ import Rooms from './components/Rooms';
 import Nosotros from './components/nosotros';
 import './index.css';
 
+import RoomDetail from './components/RoomDetail';
+
 const Home = () => (
   <>
     <Hero />
@@ -33,8 +35,9 @@ function App() {
         <Route path="/habitaciones" element={<Rooms />} />
         
         {/* RUTA DINÁMICA: Atrapa cualquier ID de habitación */}
-        <Route path="/habitaciones/:id" element={<DummyPage title="Detalles de Habitación (En desarrollo)" />} />
-        
+        <Route path="/habitaciones" element={<Rooms />} />
+<Route path="/habitaciones/:id" element={<RoomDetail />} />
+
         <Route path="/actividades" element={<DummyPage title="Actividades en Taxco" />} />
         <Route path="/galeria" element={<DummyPage title="Galería" />} />
         <Route path="/reservar" element={<DummyPage title="Motor de Reservas" />} />

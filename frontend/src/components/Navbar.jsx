@@ -3,32 +3,30 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation(); // Detecta en qué ruta estamos
+  const location = useLocation();
 
-  // Si no estamos en la página de inicio ("/"), forzamos el estilo "scrolled"
   const isHomePage = location.pathname === '/';
+  // El Navbar cambia a fondo blanco si se hace scroll O si no estamos en el Home
   const navClass = (scrolled || !isHomePage) ? 'scrolled' : '';
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 34) { 
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 34);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      <div className="top-bar">
-        Reserva en web y recibe: Early Check-in, Parking y Wi-Fi gratis *Aplican Restricciones
-      </div>
+      {/* Lógica Senior: Solo renderiza la barra de anuncios en el Home */}
+      {isHomePage && (
+        <div className="top-bar">
+          Reserva en web y recibe: Early Check-in, Parking y Wi-Fi gratis *Aplican Restricciones
+        </div>
+      )}
 
-      <nav id="navbar" className={navClass}>
+      <nav id="navbar" className={navClass} style={!isHomePage ? { top: '0' } : {}}>
         <Link to="/" className="logo">Casa Grande</Link>
         <ul className="nav-links">
           <li><Link to="/">Inicio</Link></li>
