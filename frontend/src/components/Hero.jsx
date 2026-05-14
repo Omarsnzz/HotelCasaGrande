@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
-// Centralizamos las rutas de las imágenes en un arreglo
 const slides = [
   '/BACKGROUND.png',
   '/BACKGROUND1.jpg',
@@ -11,21 +11,16 @@ const slides = [
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // useCallback memoriza la función para evitar re-renderizados innecesarios
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    // La misma fórmula que tenías, adaptada al estado de React para evitar negativos
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   }, []);
 
-  // Control del temporizador de 7 segundos
   useEffect(() => {
     const timer = setInterval(nextSlide, 7000); 
-
-    // Limpieza del intervalo: vital para aplicaciones escalables
     return () => clearInterval(timer);
   }, [nextSlide]);
 
@@ -37,42 +32,28 @@ const Hero = () => {
             key={slide}
             className={`slide ${index === currentSlide ? 'active' : ''}`}
             style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('${slide}')`
+              /* Oscurecemos un poco más el fondo para asegurar que el texto blanco resalte perfecto */
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('${slide}')`
             }}
           />
         ))}
       </div>
 
-      <button className="carousel-btn prev-btn" onClick={prevSlide} aria-label="Slide anterior">
-        &#10094;
-      </button>
-      <button className="carousel-btn next-btn" onClick={nextSlide} aria-label="Siguiente slide">
-        &#10095;
-      </button>
+      <button className="carousel-btn prev-btn" onClick={prevSlide} aria-label="Slide anterior">&#10094;</button>
+      <button className="carousel-btn next-btn" onClick={nextSlide} aria-label="Siguiente slide">&#10095;</button>
 
-      {/* Tarjeta de oferta respetando el diseño Glassmorphism */}
-      <div className="offer-card">
-        <h1>¡EN EL CENTRO DE LA CIUDAD A UNOS METROS DEL ZÓCALO!</h1>
-        
-        <div className="discounts">
-          <div className="discount-item">
-            <span className="discount-percent">35%</span>
-            <span className="discount-nights">1 Noche</span>
-          </div>
-          <div className="discount-item">
-            <span className="discount-percent">40%</span>
-            <span className="discount-nights">2 Noches</span>
-          </div>
-          <div className="discount-item">
-            <span className="discount-percent">45%</span>
-            <span className="discount-nights">3+ Noches</span>
-          </div>
-        </div>
-
-        <p className="offer-footer">
-          <strong>Reserva sin riesgo:</strong> tarifas 100% reembolsables.<br />
-          Con la tranquilidad de poder cambiar de plan cuando quieras.
+      {/* NUEVO DISEÑO ELEGANTE Y MINIMALISTA */}
+      <div className="hero-content">
+        <span className="hero-badge">Patrimonio Histórico</span>
+        <h1 className="hero-title">Tu Refugio Colonial en el Corazón de Taxco</h1>
+        <p className="hero-subtitle">
+          Descubre la tradición, el confort y las mejores vistas panorámicas de la ciudad a solo unos pasos del Zócalo.
         </p>
+        
+        <div className="hero-actions">
+          <Link to="/habitaciones" className="btn-hero-primary">Explorar Habitaciones</Link>
+          <Link to="/reservar" className="btn-hero-secondary">Reservar Ahora</Link>
+        </div>
       </div>
     </section>
   );
