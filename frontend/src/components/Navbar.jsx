@@ -6,7 +6,6 @@ const Navbar = () => {
   const location = useLocation();
 
   const isHomePage = location.pathname === '/';
-  // El Navbar cambia a fondo blanco si se hace scroll O si no estamos en el Home
   const navClass = (scrolled || !isHomePage) ? 'scrolled' : '';
 
   useEffect(() => {
@@ -19,7 +18,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Lógica Senior: Solo renderiza la barra de anuncios en el Home */}
       {isHomePage && (
         <div className="top-bar">
           Reserva en web y recibe: Early Check-in, Parking y Wi-Fi gratis *Aplican Restricciones
@@ -27,7 +25,14 @@ const Navbar = () => {
       )}
 
       <nav id="navbar" className={navClass} style={!isHomePage ? { top: '0' } : {}}>
-        <Link to="/" className="logo">Casa Grande</Link>
+        
+        {/* NUEVO: Contenedor del Logo + Texto */}
+        <Link to="/" className="brand-container">
+          {/* Asegúrate de que logo.png esté en la carpeta public */}
+          <img src="/logo.png" alt="Logo Casa Grande" className="navbar-logo" />
+          <span className="logo-text">Casa Grande</span>
+        </Link>
+
         <ul className="nav-links">
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/nosotros">Nosotros</Link></li>

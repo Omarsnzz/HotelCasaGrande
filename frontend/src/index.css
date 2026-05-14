@@ -163,56 +163,95 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
 .prev-btn { left: 30px; }
 .next-btn { right: 30px; }
 
-.offer-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    padding: 50px 40px;
-    max-width: 800px;
-    color: var(--text-light);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 1s ease forwards;
+/* =========================================
+   NUEVO DISEÑO HERO (INICIO)
+   ========================================= */
+.hero-content {
+    position: relative;
     z-index: 2;
+    max-width: 900px;
+    text-align: center;
+    color: var(--text-light);
+    animation: fadeInUp 1.2s ease forwards;
+    padding: 0 20px;
 }
 
-.offer-card h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    margin-bottom: 30px;
-    line-height: 1.2;
-}
-
-.discounts {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 30px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding: 20px 0;
-}
-
-.discount-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.discount-percent {
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-
-.discount-nights {
-    font-size: 0.9rem;
+.hero-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid var(--accent-color);
+    border-radius: 30px;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: var(--accent-color);
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
 }
 
-.offer-footer {
-    font-size: 0.9rem;
-    opacity: 0.9;
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.6);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 45px;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.6);
+    opacity: 0.95;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-hero-primary, .btn-hero-secondary {
+    padding: 14px 35px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-hero-primary {
+    background-color: var(--accent-color);
+    color: white;
+    border: 2px solid var(--accent-color);
+}
+
+.btn-hero-primary:hover {
+    background-color: transparent;
+}
+
+.btn-hero-secondary {
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    border: 2px solid white;
+    backdrop-filter: blur(5px);
+}
+
+.btn-hero-secondary:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .hero-actions { flex-direction: column; gap: 15px; }
 }
 
 /* =========================================
@@ -434,50 +473,377 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     .next-btn { right: 10px; }
 }
 /* Estilos extra para las imágenes y botón de las tarjetas */
-.room-card {
-    padding: 0; /* Quitamos el padding global para que la imagen ocupe todo el ancho arriba */
-    overflow: hidden; /* Redondea las esquinas de la imagen */
+/* =========================================
+   DISEÑO PREMIUM DE HABITACIONES
+   ========================================= */
+
+/* Barra de Filtros */
+.filters-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
 }
 
-.room-img-container {
+.filter-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(26, 54, 93, 0.2);
+}
+
+/* Tarjetas Rediseñadas */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.room-card-premium {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* Imagen y Overlay */
+.card-image-wrapper {
+    position: relative;
+    height: 240px;
     width: 100%;
-    height: 200px;
     overflow: hidden;
 }
 
-.room-card-img {
+.card-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
-.room-card:hover .room-card-img {
-    transform: scale(1.05); /* Efecto zoom al pasar el mouse */
+.room-card-premium:hover .card-image-wrapper img {
+    transform: scale(1.08);
 }
 
-.room-info, .room-price-box {
-    padding: 0 20px; /* Regresamos el padding solo a los textos */
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.room-info {
-    margin-top: 15px;
+/* Etiquetas (Badges) */
+.room-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 
-.btn-details {
-    display: block;
+.badge-gold { background: linear-gradient(135deg, #D4AF37, #AA8C2C); }
+.badge-green { background: linear-gradient(135deg, #2E8B57, #236B43); }
+.badge-blue { background: linear-gradient(135deg, #4A90E2, #357ABD); }
+
+/* Precio sobre la imagen */
+.price-tag {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.price-tag .currency { font-size: 1rem; vertical-align: top; margin-right: 2px;}
+.price-tag .night { font-size: 0.9rem; font-weight: 400; opacity: 0.8; }
+
+/* Contenido de la Tarjeta */
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.floor-label {
+    font-size: 0.75rem;
+    color: #888;
+    background: #f5f5f5;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* Características con SVG */
+.card-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.feature svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-color);
+}
+
+/* Botones de Acción */
+.card-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: auto; /* Empuja los botones al fondo */
+}
+
+.card-actions a {
+    flex: 1;
     text-align: center;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    padding: 12px 0;
-    margin: 20px;
+    padding: 10px 0;
     border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-.btn-details:hover {
-    background-color: var(--accent-color);
+.btn-outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: #f8f9fa;
+}
+
+.btn-solid {
+    background: var(--accent-color);
     color: white;
+    border: 1px solid var(--accent-color);
+}
+
+.btn-solid:hover {
+    background: #b5952f;
+    border-color: #b5952f;
+}
+/* =========================================
+   ESTILOS DEL BANNER REUTILIZABLE
+   ========================================= */
+.page-banner {
+    width: 100%;
+    height: 50vh; /* Ocupa la mitad de la pantalla */
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Le da un efecto Parallax elegante */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    margin-top: 74px; /* Empuja el banner hacia abajo para que el Navbar blanco no lo tape */
+}
+
+.banner-content {
+    animation: fadeInUp 1s ease forwards;
+    padding: 0 20px;
+}
+
+.banner-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+/* =========================================
+   ESTILOS DEL LOGO EN NAVBAR
+   ========================================= */
+/* 1. Contenedor: bloqueamos el color morado de los enlaces visitados */
+.brand-container, .brand-container:visited, .brand-container:active {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+/* 2. El texto "Casa Grande" que te faltaba agregar */
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-light); /* Fuerza a que sea blanco al inicio */
+    transition: color 0.3s ease;
+    text-shadow: 0px 2px 5px rgba(0,0,0,0.8);
+}
+
+/* 3. Cuando haces scroll y la barra se pone blanca, el texto se vuelve azul oscuro */
+nav.scrolled .logo-text {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+/*LOGO*/
+.navbar-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    /* MAGIA CSS: Vuelve cualquier imagen a blanco puro */
+    filter: brightness(0) invert(1); 
+}
+
+.brand-container:hover .navbar-logo {
+    transform: scale(1.05);
+}
+
+/* Al hacer scroll, le quitamos el filtro y vuelve a ser negro/color */
+nav.scrolled .navbar-logo {
+    filter: none; 
+}
+/* =========================================
+   ESTILOS DEL FOOTER
+   ========================================= */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding-top: 60px;
+    border-top: 4px solid var(--accent-color);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-desc {
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0.9;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+    transform: translateX(5px); /* Efecto deslizar a la derecha */
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px 5%;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 20px;
 }

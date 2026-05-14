@@ -3,11 +3,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Welcome from './components/Welcome';
 import Rooms from './components/Rooms';
-// 1. Agrega esta línea para importar tu archivo (verifica que la ruta sea correcta)
 import Nosotros from './components/nosotros';
-import './index.css';
-
 import RoomDetail from './components/RoomDetail';
+import Footer from './components/Footer'; // 1. IMPORTAMOS EL FOOTER
+import './index.css';
 
 const Home = () => (
   <>
@@ -26,22 +25,18 @@ function App() {
   return (
     <Router>
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<Home />} />
-        
-        {/* 2. Cambia DummyPage por tu componente Nosotros */}
         <Route path="/nosotros" element={<Nosotros />} />
-        
         <Route path="/habitaciones" element={<Rooms />} />
-        
-        {/* RUTA DINÁMICA: Atrapa cualquier ID de habitación */}
-        <Route path="/habitaciones" element={<Rooms />} />
-<Route path="/habitaciones/:id" element={<RoomDetail />} />
-
+        <Route path="/habitaciones/:id" element={<RoomDetail />} />
         <Route path="/actividades" element={<DummyPage title="Actividades en Taxco" />} />
         <Route path="/galeria" element={<DummyPage title="Galería" />} />
         <Route path="/reservar" element={<DummyPage title="Motor de Reservas" />} />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }
