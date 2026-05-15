@@ -4,9 +4,12 @@ import Hero from './components/Hero';
 import Welcome from './components/Welcome';
 import Rooms from './components/Rooms';
 import Nosotros from './components/nosotros';
+
 import RoomDetail from './components/RoomDetail';
-import Footer from './components/Footer'; // 1. IMPORTAMOS EL FOOTER
+import Footer from './components/Footer';
+import Galeria from './components/Galeria'
 import './index.css';
+
 
 const Home = () => (
   <>
@@ -32,7 +35,7 @@ function App() {
         <Route path="/habitaciones" element={<Rooms />} />
         <Route path="/habitaciones/:id" element={<RoomDetail />} />
         <Route path="/actividades" element={<DummyPage title="Actividades en Taxco" />} />
-        <Route path="/galeria" element={<DummyPage title="Galería" />} />
+        <Route path="/galeria" element={<Galeria />} />
         <Route path="/reservar" element={<DummyPage title="Motor de Reservas" />} />
       </Routes>
 
