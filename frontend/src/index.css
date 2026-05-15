@@ -472,9 +472,9 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     .prev-btn { left: 10px; }
     .next-btn { right: 10px; }
 }
-/* Estilos extra para las imágenes y botón de las tarjetas */
+
 /* =========================================
-   DISEÑO PREMIUM DE HABITACIONES
+   DISEÑO PREMIUM DE HABITACIONES Y ACTIVIDADES
    ========================================= */
 
 /* Barra de Filtros */
@@ -679,6 +679,7 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     background: #b5952f;
     border-color: #b5952f;
 }
+
 /* =========================================
    ESTILOS DEL BANNER REUTILIZABLE
    ========================================= */
@@ -714,6 +715,7 @@ nav.scrolled .logo, nav.scrolled .nav-links a {
     font-style: italic;
     opacity: 0.9;
 }
+
 /* =========================================
    ESTILOS DEL LOGO EN NAVBAR
    ========================================= */
@@ -759,6 +761,7 @@ nav.scrolled .logo-text {
 nav.scrolled .navbar-logo {
     filter: none; 
 }
+
 /* =========================================
    ESTILOS DEL FOOTER
    ========================================= */
@@ -847,86 +850,6 @@ nav.scrolled .navbar-logo {
     opacity: 0.7;
     margin-top: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* =========================================
@@ -1079,4 +1002,71 @@ nav.scrolled .navbar-logo {
     .lightbox-nav.prev { left: 10px; }
     .lightbox-nav.next { right: 10px; }
     .lightbox-content { max-width: 95%; }
+  }
+/* =========================================
+   ESTILOS COMPLEMENTARIOS PARA ACTIVIDADES
+   ========================================= */
+
+.actividades-page {
+    background-color: var(--bg-light);
+    padding-top: 150px; /* Importante: Da espacio para que el navbar no tape el titulo */
+    padding-bottom: 80px;
+    min-height: 100vh;
+}
+
+.actividades-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.actividades-intro {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 60px;
+    text-align: center;
+    border: 1px solid #eee;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.actividades-intro p {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.sensory-section {
+    margin-top: 80px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 20px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(26, 54, 93, 0.2);
+}
+
+@media (min-width: 992px) {
+    .sensory-section {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.sensory-quote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 30px;
+}
+
+.sensory-quote blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-style: italic;
+    color: #e0e0e0;
+    line-height: 1.5;
 }
