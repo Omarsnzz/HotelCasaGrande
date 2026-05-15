@@ -4,8 +4,9 @@ import Hero from './components/Hero';
 import Welcome from './components/Welcome';
 import Rooms from './components/Rooms';
 import Nosotros from './components/nosotros';
+import Actividades from './components/actividades';
 import RoomDetail from './components/RoomDetail';
-import Footer from './components/Footer'; // 1. IMPORTAMOS EL FOOTER
+import Footer from './components/Footer'; 
 import './index.css';
 
 const Home = () => (
@@ -31,7 +32,10 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/habitaciones" element={<Rooms />} />
         <Route path="/habitaciones/:id" element={<RoomDetail />} />
-        <Route path="/actividades" element={<DummyPage title="Actividades en Taxco" />} />
+        
+        {/* AQUÍ ESTABA EL ERROR: Cambiamos DummyPage por Actividades */}
+        <Route path="/actividades" element={<Actividades />} />
+        
         <Route path="/galeria" element={<DummyPage title="Galería" />} />
         <Route path="/reservar" element={<DummyPage title="Motor de Reservas" />} />
       </Routes>

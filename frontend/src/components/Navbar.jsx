@@ -37,6 +37,7 @@ const Navbar = () => {
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/nosotros">Nosotros</Link></li>
           <li><Link to="/habitaciones">Habitaciones</Link></li>
+          {/* AQUÍ ESTÁ LA CORRECCIÓN: Apunta a /actividades */}
           <li><Link to="/actividades">Actividades en Taxco</Link></li>
           <li><Link to="/galeria">Galería</Link></li>
           <li><Link to="/reservar" className="btn-reservar">Reservar</Link></li>
